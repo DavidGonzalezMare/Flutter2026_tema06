@@ -496,5 +496,5 @@ Por otra parte, para crear la lista de comarcas (en el método `_creaListaComarc
     }
   }
 ```
-Dejamos para el alumno la adaptación de la pantalla de información de la comarca con un repositorio.
+Dejamos para el alumno la adaptación de la pantalla de información de la comarca con un repositorio, así como la adaptación de la vista del Weather.
 
