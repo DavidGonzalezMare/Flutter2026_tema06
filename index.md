@@ -109,7 +109,7 @@ El funcionamiento por lo general del patrón es el siguiente.
   
 - Los widgets hijos del `ChangeNotifierProvider`, pueden suscribirse a las propiedades del estado del `Provider` de diversas formas, bien con el método `Provider.of` o los widgets `Consumer` o `Selector`.
   
-- Cuando se produce un cambio de estado, el Provider notifica a todos sus suscriptores utilizando el método `notiftListeners()`, que incorpora de la clase `ChangeNotifier`.
+- Cuando se produce un cambio de estado, el Provider notifica a todos sus suscriptores utilizando el método `notifyListeners()`, que incorpora de la clase `ChangeNotifier`.
 
 Con este funcionamiento, podemos disponer de una estructura jerárquica que comparte valores y los actualiza en tiempo real sin necesidad de proporcionar datos de los argumentos.
 
@@ -165,13 +165,17 @@ import 'package:flutter/foundation.dart';
 class ComarcasProvider with ChangeNotifier {...}
 ```
 
-***
-El módulo foundation que estamos importando es la base del framework Flutter, sobre la que se construyen el resto de capas y módulos, entre las que se encuentran otros módulos como *Widgets*, *Material* o *Cupertino*. Si no añadimos ninguna libería, nos indicaría que no puede encontrar la clase `ChangeNotifier` y nos sugeriría importar bien la librería *foundation*, *widgets*, *material* o *cupertino*. Dado que no necesitamos ningún componente gráfico más específico en este archivo, basta con importar *foundation*.
-***
+<hr>
 
-***
+El módulo foundation que estamos importando es la base del framework Flutter, sobre la que se construyen el resto de capas y módulos, entre las que se encuentran otros módulos como *Widgets*, *Material* o *Cupertino*. Si no añadimos ninguna libería, nos indicaría que no puede encontrar la clase `ChangeNotifier` y nos sugeriría importar bien la librería *foundation*, *widgets*, *material* o *cupertino*. Dado que no necesitamos ningún componente gráfico más específico en este archivo, basta con importar *foundation*.
+
+<hr>
+
+<hr>
+
 Recuerde también que el lenguaje Dart contempla a los `Mixins` como una aproximación a la herencia múltiple, y supone un mecanismo más potente que el uso de interfaces. Un mixin implicaba que una clase definida como tal incorpora las capacidades (propiedades y comportamiento) de otras clases, sin necesidad de utilizar la herencia y evitar los problemas derivados de la herencia múltiple.
-***
+
+<hr>
 
 De esta forma, ahora, nuestra clase `ComarcasProvider` podrá utilizar los métodos de la clase `ChangeNotifier`.
 
@@ -269,19 +273,22 @@ void _cargarComarcas(String provincia) async {
 
 Como vemos, se trata de un método `async` que pide la lista de comarcas (con el nombre y la imagen) en el repositorio, y actualiza con la respuesta la lista de comarcas del Provider. Una vez actualizada la lista, será necesario notificar todos los widgets que estuvieran suscritos a ella con el método `notifyListeners`.
 
-***
+<hr>
+
 ¿Por qué añadimos `notifyListeners()` al final de` _cargaComarcas` y no al final del método `set`?
 
 Si nos damos cuenta, el método `set` no se espera a que finalice el método de carga de las comarcas. De hecho, un método de tipo set no puede ser asíncrono. Cuando se invoca al método `_cargarComarcas`, el método `set` finaliza, pero la carga de las comarcas todavía está en proceso, por lo que la notificación a los widgets suscritos deberá realizarse una vez se ha actualizado la lista de comarcas.
-***
 
-***
+<hr>
+<hr>
+
 Para qué sirve establecer `comarcas=null;` en el método `set`?
 
 Cuando tenemos una lista de comarcas cargada y queremos mostrar las comarcas de otra provincia, en el momento que hagamos clic sobre la nueva provincia, la vista renderizaría la lista de comarcas que tiene cargada el Provider, y que serían las de la provincia seleccionada anteriormente. En el momento que se cargara la nueva lista se actualizaría la vista de forma automática, pero en el momento de hacer clic, veríamos las comarcas que no tocan.
 
 Para evitar esto, lo que hacemos es limpiar esta lista de comarcas (poniéndola a null), para que aparezca el indicador de progreso mientras se cargan.
-***
+
+<hr>
 
 ### Métodos de acceso para la comarca actual
 
