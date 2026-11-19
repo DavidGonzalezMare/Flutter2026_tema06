@@ -19,10 +19,10 @@ En esta unidad veremos uno de los patrones más comunes cuando se trabaja con Fl
 
 [2. El Patrón Provider](#_apartado2)
 
-[3. Provider en acción. Adaptación de la app de comarcas](#_apartado2)
+[3. Provider en acción. Adaptación de la app de comarcas](#_apartado3)
 
 
-# <a name="_apartado1"></a>1. Introducción a los patrones de diseño
+# <a id="_apartado1"></a>1. Introducción a los patrones de diseño
 
 Los datos con los que trabajan nuestras aplicaciones y que cambian a lo largo del ciclo de vida de estas conforman lo que se conoce como el estado de la aplicación.
 
@@ -67,7 +67,7 @@ Podemos consultar los siguientes artículos relacionados :
 [Flutter Global State Essentials: Building and Managing Dynamic UIs](https://www.dhiwise.com/post/flutter-global-state-essentials-building-dynamic-uis)
 
 
-# <a name="_apartado2"></a>2. El Patrón Provider.
+# <a id="_apartado2"></a>2. El Patrón Provider.
 
 En este apartado, vamos a ver el patrón arquitectónico y de gestión de estado **Provider**, desarrollado por la comunidad, y presentado en Google I/O 2019, como alternativa al patrón **BLoC**, pero que no es uno más de los múltiples que existen, como *Redux*, *Riverpod* o *getX* entre otros.
 
@@ -115,7 +115,7 @@ Con este funcionamiento, podemos disponer de una estructura jerárquica que comp
 
 ![Compartiendo valores con Provider](./images/imagen02.png)
 
-# <a name="_apartado3"></a>3. Provider en acción. Adaptación de la app de comarcas.
+# <a id="_apartado3"></a>3. Provider en acción. Adaptación de la app de comarcas.
 
 Vamos a ver cómo haríamos la adaptación de nuestro proyecto de comarcas. Para ello, partimos de la estructura de carpetas que ya teníamos implementada, donde separábamos vistas, repositorios y servicios.
 
